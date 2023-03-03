@@ -1,4 +1,4 @@
-var staking = artifacts.require("./staking.sol");
+var staking = artifacts.require("staking");
 
 module.exports = function(deployer) {
   deployer.deploy(staking);

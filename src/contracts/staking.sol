@@ -2,7 +2,8 @@ pragma solidity ^0.5.0;
 
 contract staking {
 
-    uint public stakeCount = 0;
+    uint public stakeCount;
+    string public test;
     mapping(address => uint) public stArray;
     mapping(uint => address) public userAddr;
 
@@ -10,15 +11,15 @@ contract staking {
         uint id,
         uint amount,
         address payable author
-    )
-
+    );
 
     constructor() public {
-
+        stakeCount = 0;
+        test = "test string";
     }
 
-    function createStake(uint memory _amount) public {
-        require(bytes(_amount).length > 0);
+    function createStake(uint _amount) public {
+        require(_amount > 0);
         stakeCount++;
         stArray[msg.sender]=_amount;
         userAddr[stakeCount]=msg.sender;
